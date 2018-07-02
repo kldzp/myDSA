@@ -4,18 +4,32 @@ class myLinkedList {
 	int val;
 	myLinkedList next;
 	myLinkedList pre;
+	public static myLinkedList mLinkedList ;
+
+	//get instance of myLinkedList
+	public static myLinkedList getInstance() {
+		if(mLinkedList == null) {
+			synchronized (myLinkedList.class) {
+				if(mLinkedList == null) {
+					 mLinkedList = new myLinkedList();
+				}
+			}
+		}
+		return mLinkedList;
+	}
 	
 	public static void main(String[] args) {	
 		int[] x = {1,2};
 		
 		System.out.print("\n==============\n");		
 		
-		myLinkedList head = new myLinkedList();
+		myLinkedList head = getInstance();
 		head = head.insert(head, x);
 		head = head.reverse(head);
 		head.printList(head);
 
 		System.out.print("\ntest");
+		System.exit(0);
 	}
 	/*
 	 * print the element of list
