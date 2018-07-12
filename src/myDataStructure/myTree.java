@@ -32,7 +32,7 @@ public class myTree {
 		myTree root = getInstance();
 		root = root.initTree(root, 5);
 		root = root.addNode(root, 1);
-		boolean f= root.searchTree(root, 0);
+		boolean f = root.searchTree(root, 0);
 		p(null);
 	}
 
@@ -53,16 +53,17 @@ public class myTree {
 		boolean isExist = root.findNode(root, val);
 		return isExist == true ? true : false;
 	}
+
 	public boolean findNode(myTree root, int val) {
 		if (null == root) {
-			return false ;
+			return false;
 		}
 		if (val > root.val) {
-			return root.findNode( root.right,  val);
+			return root.findNode(root.right, val);
 		} else if (val < root.val) {
-			return root.findNode( root.left,  val);
+			return root.findNode(root.left, val);
 		} else {
-			return  true;
+			return true;
 		}
 	}
 
